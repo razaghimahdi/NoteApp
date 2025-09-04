@@ -1,3 +1,19 @@
 <resources>
     <string name="app_name">NoteApp</string>
+    <string name="failed_network">Network Failed</string>
+    <string name="try_again">Try Again!</string>
+    <string name="search">Search</string>
+    <string name="search_your_note">Search your notes</string>
+    <string name="recent_notes">Recent All Note</string>
+    <string name="labels">Labels</string>
+    <string name="title">Title</string>
+    <string name="note">Note</string>
+    <string name="later_today">Later Toady</string>
+    <string name="tomorrow_morning">Tomorrow Morning</string>
+    <string name="home">Home</string>
+    <string name="pick_date">Pick a Deate</string>
+    <string name="save">Save</string>
+    <string name="add_reminder">Add reminder</string>
+    <string name="cancel">Cancel</string>
+    <string name="done">Done</string>
 </resources>
