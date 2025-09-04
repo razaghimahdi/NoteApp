@@ -2,9 +2,8 @@ package com.razzaghi.noteapp.business.util
 
 
 import android.annotation.SuppressLint
-import android.util.Log
-import com.razzaghi.filimo.business.core.DataState
-import com.razzaghi.filimo.business.core.UIComponent
+import com.razzaghi.noteapp.business.core.DataState
+import com.razzaghi.noteapp.business.core.UIComponent
 
 
 private val TAG = "AppDebug handleUseCaseException"
