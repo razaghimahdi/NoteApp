@@ -2,10 +2,10 @@ plugins {
     id("razzaghi.android.application")
     id("razzaghi.android.application.compose")
     id("razzaghi.android.build.flavor")
+    alias(libs.plugins.kotlin.compose)
 }
 
 android {
-
     namespace = libs.versions.applicationId.get()
 
     defaultConfig {
@@ -15,21 +15,38 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
+
     buildTypes {
-        release {
-            isMinifyEnabled = false
-            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+        getByName("debug") {
+            manifestPlaceholders["backup"] = "true"
+        }
+
+        getByName("release") {
+            isDebuggable = false
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
+            manifestPlaceholders["backup"] = "true"
         }
     }
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+
+    packaging {
+        resources {
+            excludes += "/META-INF/{AL2.0,LGPL2.1}"
+        }
     }
-    kotlinOptions {
-        jvmTarget = "11"
-    }
-    buildFeatures {
-        compose = true
+}
+
+
+kotlin {
+    sourceSets {
+        debug {
+            kotlin.srcDir("build/generated/ksp/debug/kotlin")
+        }
+        release {
+            kotlin.srcDir("build/generated/ksp/release/kotlin")
+        }
     }
 }
 
