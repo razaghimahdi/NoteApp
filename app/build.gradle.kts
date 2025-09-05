@@ -12,7 +12,7 @@ android {
         applicationId =  libs.versions.applicationId.get()
         versionCode = libs.versions.versionCode.get().toInt()
         versionName = libs.versions.versionName.get()
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = "com.razzaghi.noteapp.MockKTestRunner"
     }
 
 
@@ -34,6 +34,8 @@ android {
     packaging {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
+            excludes += "/META-INF/LICENSE.md"
+            excludes += "/META-INF/LICENSE-notice.md"
         }
     }
 }
@@ -68,6 +70,11 @@ dependencies {
     androidTestImplementation(libs.androidx.activity.compose)
     androidTestImplementation(libs.androidx.ui.graphics)
     androidTestImplementation(libs.androidx.ui.test.manifest)
+    androidTestImplementation(libs.room.test)
+    androidTestImplementation(libs.coroutines.test)
+    androidTestImplementation(libs.truth)
+    androidTestImplementation(libs.turbine)
+    androidTestImplementation(libs.mockk.android)
     androidTestImplementation(platform(libs.androidx.compose.bom))
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
@@ -82,5 +89,7 @@ dependencies {
 
     implementation(libs.room)
     ksp(libs.room.compiler)
+
+    testImplementation(libs.bundles.test)
 
 }
